@@ -1,0 +1,22 @@
+# Configure the OpenStack Provider
+#provider "openstack" {
+#  user_name   = "admin"
+#  tenant_name = "admin"
+#  password    = "secret"
+#  auth_url    = "http://172.17.8.191/dentity"
+#  region      = "nova"
+#}
+
+# Create a FuseESB Instance
+resource "openstack_compute_instance_v2" "fuseesb01" {
+  name      = "fuseesb01"
+# instance_type = "m1.tiny"
+  region = "nova"
+  flavor_id = 1 
+# "m1.tiny"
+
+  network {
+    uuid = "00000000-0000-0000-0000-000000000000"
+    name = "public"
+  } 
+}
